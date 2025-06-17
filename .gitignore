@@ -1,0 +1,15 @@
+# Ignorar configuraciones de IntelliJ
+.idea/
+*.iml
+shelf/
+
+# Archivos de salida
+/out/
+*.class
+
+# Archivos personales
+*.log
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
