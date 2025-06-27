@@ -10,16 +10,8 @@ public class Operacion {
         return monedaActual;
     }
 
-    public void setMonedaActual(String monedaActual) {
-        this.monedaActual = monedaActual;
-    }
-
     public String getMonedaDestino() {
         return monedaDestino;
-    }
-
-    public void setMonedaDestino(String monedaDestino) {
-        this.monedaDestino = monedaDestino;
     }
 
     public double getMontoActual() {
@@ -34,9 +26,6 @@ public class Operacion {
         this.montoDestino = montoDestino;
     }
 
-    public void setMonto(double monto) {
-        this.montoAcutal = monto;
-    }
 
     public Operacion(String monedaActual, String monedaDestino, double monto) {
         this.monedaActual = monedaActual;

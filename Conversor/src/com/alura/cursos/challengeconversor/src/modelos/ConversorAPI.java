@@ -7,11 +7,9 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Scanner;
 
 public class ConversorAPI {
  public static double tasaUSD (String codigo) throws IOException, InterruptedException {
-        Scanner teclado = new Scanner(System.in);
         String URL = "https://v6.exchangerate-api.com/v6/0b33f6308ffb02c5b6c2aaa4/latest/";
 
         String URLFinal = URL + codigo;

@@ -3,6 +3,8 @@ package com.alura.cursos.challengeconversor.src.modelos;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.alura.cursos.challengeconversor.src.modelos.OperacionesWriter.guardarHistorial;
+
 public class Interfaz {
     private final Scanner teclado    = new Scanner(System.in);
     private final String[] monedasPrincipales = {"ARS", "USD", "PEN", "BRL", "EUR", "JPY", "CNY", "GBP"};
@@ -90,7 +92,6 @@ public class Interfaz {
                     System.out.println("OPERACIÓN REGISTRADA CON ÉXITO");
                     System.out.println(moneda1 + " → " + moneda2 + " | Monto: " + monto);
                     System.out.println("$1 " + moneda1 + " → $" + equivalenteUnitario + " " + moneda2 + "\n");
-                    mostrarHistorial();
                     preguntarModificarOperacion();
                 }
                 catch (Exception e) {
@@ -105,6 +106,7 @@ public class Interfaz {
                 if (continuar.equals("1")) break;
                 else if (continuar.equals("2")) {
                     mostrarHistorial();
+                    guardarHistorial(operaciones);
                     return;
                 } else {
                     System.out.println("Entrada inválida. Ingrese '1' o '2'.\n");
@@ -175,6 +177,7 @@ public class Interfaz {
 
             else if (respuesta.equals("1")) {
                 while (true){
+                    mostrarHistorial();
                     System.out.println("Ingrese el número de la OPERACIÓN que desea EDITAR o ELIMINAR. O ingrese '0' para CANCELAR");
                     String entrada = teclado.nextLine().trim();
                     if (Integer.parseInt(entrada)<=operaciones.size() && Integer.parseInt(entrada)>0){
@@ -219,11 +222,11 @@ public class Interfaz {
                                         System.out.println("OPERACIÓN EDITADA con ÉXITO");
                                         System.out.println( valorOrigen+ " → " + valorDestino + " | Monto: " + nuevoMonto);
                                         System.out.println("$1 " + valorOrigen + " → $" + resultado + " " + valorDestino + ".\n");
-                                        mostrarHistorial();
                                         preguntarModificarOperacion();
                                         break;
                                     } catch (Exception e) {
                                         System.out.println("Error al obtener la tasa de cambio: " + e.getMessage());
+                                        preguntarModificarOperacion();
                                     }
                                 } else if (accion.equals("2")) {
                                     while (true) {
@@ -233,7 +236,7 @@ public class Interfaz {
                                         if (confirmar.equals("1")) {
                                             operaciones.remove(indice);
                                             System.out.println("OPERACIÓN ELIMINADA con ÉXITO.\n");
-                                            mostrarHistorial();
+                                            preguntarModificarOperacion();
                                             break;
                                         }
                                         else if (confirmar.equals("2")) {
