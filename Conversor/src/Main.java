@@ -1,9 +1,10 @@
-import java.io.IOException;
+import com.alura.cursos.challengeconversor.src.modelos.Interfaz;
 
-import static com.alura.cursos.challengeconversor.src.modelos.ConversorAPI.conversor;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        conversor("usd");
+        Interfaz interfaz = new Interfaz();
+        interfaz.inicio();
     }
 }
